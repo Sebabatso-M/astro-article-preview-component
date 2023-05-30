@@ -2,7 +2,7 @@
 
 # Frontend Mentor - Article preview component Astro Migration
 
-![Design preview for the Article preview component coding challenge](./public/design/desktop-preview.jpg)
+<img src="./public/design/desktop-preview.jpg" alt= 'Design preview for the Article preview component coding challenge' width="80%" height="80%">
 
 ## About this project 👋
 
