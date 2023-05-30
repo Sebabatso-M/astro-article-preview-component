@@ -1,0 +1,38 @@
+---
+import facebookIcon from '../images/icon-facebook.svg';
+import twitterIcon from '../images/icon-twitter.svg';
+import pinterestIcon from '../images/icon-pinterest.svg';
+---
+
+<div class='hidden visible' id='share-links'>
+    <span>SHARE</span>
+
+    <img src={facebookIcon} alt='icon-facebook' />
+    <img src={twitterIcon} alt='icon-twitter' />
+    <img src={pinterestIcon} alt='icon-pinterest' />
+</div>
+
+<style>
+    #share-links span {
+        margin-right: 1.3125rem;
+        color: white;
+        letter-spacing: 2.8px;
+    }
+
+    #share-links img {
+        margin-right: 1.0625rem;
+    }
+
+    @media screen and (min-width: 768px) {
+        #share-links {
+            background: var(--darkGrayishBlue);
+            border-radius: 10px;
+            padding: 0 2.1275rem;
+            padding-top: 1.08rem;
+            padding-bottom: 0.96rem;
+            position: absolute;
+            right: -120px;
+            top: -52px;
+        }
+    }
+</style>

@@ -1,0 +1,36 @@
+---
+import shareIcon from '../images/icon-share.svg';
+---
+
+<div id='share-icon-bg'>
+    <img id='share-icon' src={shareIcon} alt='icon-share' />
+</div>
+
+<style>
+    #share-icon-bg {
+        display: inline-block;
+        background: var(--lightGrayishBlue);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 2.06375rem;
+        cursor: pointer;
+    }
+
+    #share-icon {
+        width: 18px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+    }
+
+    @media screen and (min-width: 768px) {
+        #share-icon-bg {
+            right: 0;
+        }
+    }
+</style>
