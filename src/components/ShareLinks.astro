@@ -2,17 +2,31 @@
 import facebookIcon from '../images/icon-facebook.svg';
 import twitterIcon from '../images/icon-twitter.svg';
 import pinterestIcon from '../images/icon-pinterest.svg';
+import shareIcon from '../images/icon-share.svg';
 ---
 
-<div class='hidden visible' id='share-links'>
-    <span>SHARE</span>
+<div class='' id='share-container'>
+    <!-- container is the one that will be animated -->
+    <div class='inner-container'>
+        <div id='share-links'>
+            <span>SHARE</span>
 
-    <img src={facebookIcon} alt='icon-facebook' />
-    <img src={twitterIcon} alt='icon-twitter' />
-    <img src={pinterestIcon} alt='icon-pinterest' />
+            <img src={facebookIcon} alt='icon-facebook' />
+            <img src={twitterIcon} alt='icon-twitter' />
+            <img src={pinterestIcon} alt='icon-pinterest' />
+        </div>
+        <div id='arrow-down'></div>
+    </div>
+</div>
+
+<div id='share-icon-bg'>
+    <img id='share-icon' src={shareIcon} alt='icon-share' />
 </div>
 
 <style>
+    .inner-container {
+        opacity: 0;
+    }
     #share-links span {
         margin-right: 1.3125rem;
         color: white;
@@ -34,5 +48,68 @@ import pinterestIcon from '../images/icon-pinterest.svg';
             right: -120px;
             top: -52px;
         }
+        #arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid var(--darkGrayishBlue);
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    #share-icon-bg {
+        display: inline-block;
+        background: var(--lightGrayishBlue);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 2.06375rem;
+        cursor: pointer;
+    }
+
+    #share-icon {
+        width: 18px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+    }
+
+    @media screen and (min-width: 768px) {
+        #share-icon-bg {
+            right: 0;
+        }
     }
 </style>
+
+<script>
+    const shareBtn = document.getElementById('share-icon-bg');
+    const linksSection = document.getElementById('share-container');
+    const innerContainer = document.querySelector('.inner-container');
+    const profileSection = document.getElementById('profile');
+    const bottomSection = document.getElementById('bottom-section');
+    // const arrowDown = document.getElementById('arrow-down');
+
+    shareBtn.addEventListener('click', (e) => {
+        if (window.screen.width < 768) {
+            profileSection.classList.toggle('hidden');
+            bottomSection.classList.toggle('active');
+        } else {
+            // arrowDown.classList.toggle('hidden');
+        }
+        // linksSection.classList.toggle('hidden');
+        if (innerContainer.classList.contains('fade-in')) {
+            innerContainer.classList.add('fade-out');
+            innerContainer.classList.remove('fade-in');
+        } else {
+            innerContainer.classList.add('fade-in');
+            innerContainer.classList.remove('fade-out');
+        }
+    });
+</script>

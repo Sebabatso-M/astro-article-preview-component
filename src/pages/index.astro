@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import ShareLinks from '../components/ShareLinks.astro';
-import ShareIcon from '../components/ShareIcon.astro';
 
 import drawers from '../images/drawers.jpg';
 import avatar from '../images/avatar-michelle.jpg';
@@ -19,7 +18,11 @@ import avatar from '../images/avatar-michelle.jpg';
         <!--Link to actual page-->
 
         <!--article-preview-component-gold-nu.vercel.app/-->
-
+        <script
+            src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js'
+            integrity='sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=='
+            crossorigin='anonymous'
+            referrerpolicy='no-referrer'></script>
         <title>Frontend Mentor | Article preview component</title>
     </head>
 
@@ -53,10 +56,6 @@ import avatar from '../images/avatar-michelle.jpg';
                     </div>
 
                     <ShareLinks />
-
-                    <div class='hidden' id='arrow-down'></div>
-
-                    <ShareIcon />
                 </div>
             </section>
         </div>
@@ -69,6 +68,9 @@ import avatar from '../images/avatar-michelle.jpg';
         margin-bottom: 2rem;
         background: white;
         box-shadow: 0px 2px 18px 1px rgb(190, 190, 190);
+        opacity: 0;
+        transform: scale(0.8);
+        animation-duration: 1.5s;
     }
 
     #banner {
@@ -173,16 +175,19 @@ import avatar from '../images/avatar-michelle.jpg';
             padding-top: 2.2275rem;
             padding-right: 2.4525rem;
         }
-
-        #arrow-down {
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 15px solid var(--darkGrayishBlue);
-            position: absolute;
-            right: 0;
-            top: 0;
-        }
     }
 </style>
+
+<script>
+    window.addEventListener('load', () => {
+        const container = document.querySelector('#container');
+
+        if (container.classList.contains('fade-in')) {
+            container.classList.add('fade-out');
+            container.classList.remove('fade-in');
+        } else {
+            container.classList.add('fade-in');
+            container.classList.remove('fade-out');
+        }
+    });
+</script>
